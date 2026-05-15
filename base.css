@@ -269,6 +269,8 @@
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 12px;
+  width: 100%;
+  max-width: calc(320px * 3 + 24px * 2); /* matches 3-col cards-grid */
 }
 
 .footer-brand {
