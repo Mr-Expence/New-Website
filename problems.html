@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Problem Picker</title>
+  <link rel="icon" type="image/x-icon" href="https://mr-expence.github.io/cat_logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="picker.css">
+  <link rel="stylesheet" href="topbar.css">
+</head>
+
+<body>
+  <nav class="topbar">
+    <a href="index.html">
+      <img src="https://mr-expence.github.io/cat_logo.png" alt="Mr_Expence logo">
+      Mr_Expence
+    </a>
+    <div class="topbar-right">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="socials.html">Socials</a>
+    </div>
+  </nav>
+  <div class="page-wrap">
+  </div>
+  <div class="wrapper">
+    <a class="brand" href="https://mr-expence.github.io" target="_blank">
+      <img src="https://mr-expence.github.io/cat_logo.png" alt="Mr_Expence" onerror="this.style.display = 'none'" />
+      <span class="brand-name" style="color: #e4e6f0">Mr_Expence</span>
+    </a>
+
+    <h1 class="heading">
+      Problem <br />
+      <em>Picker</em>
+    </h1>
+    <p class="sub">
+      Get a random Codeforces problem based on rating range.
+    </p>
+    <div class="picker-container">
+      <div>
+        <label>Min</label>
+        <select id="min-rating">
+          <option value="800" selected>800</option>
+          <option value="900">900</option>
+          <option value="1000">1000</option>
+          <option value="1100">1100</option>
+          <option value="1200">1200</option>
+          <option value="1300">1300</option>
+          <option value="1400">1400</option>
+          <option value="1500">1500</option>
+          <option value="1600">1600</option>
+          <option value="1700">1700</option>
+          <option value="1800">1800</option>
+          <option value="1900">1900</option>
+          <option value="2000">2000</option>
+          <option value="2100">2100</option>
+          <option value="2200">2200</option>
+          <option value="2300">2300</option>
+          <option value="2400">2400</option>
+          <option value="2500">2500</option>
+          <option value="2600">2600</option>
+          <option value="2700">2700</option>
+          <option value="2800">2800</option>
+          <option value="2900">2900</option>
+          <option value="3000">3000</option>
+          <option value="3100">3100</option>
+          <option value="3200">3200</option>
+          <option value="3300">3300</option>
+          <option value="3400">3400</option>
+          <option value="3500">3500</option>
+        </select>
+      </div>
+      <div>
+        <label>Max</label>
+        <select id="max-rating">
+          <option value="800">800</option>
+          <option value="900">900</option>
+          <option value="1000">1000</option>
+          <option value="1100">1100</option>
+          <option value="1200">1200</option>
+          <option value="1300">1300</option>
+          <option value="1400">1400</option>
+          <option value="1500">1500</option>
+          <option value="1600">1600</option>
+          <option value="1700">1700</option>
+          <option value="1800">1800</option>
+          <option value="1900">1900</option>
+          <option value="2000">2000</option>
+          <option value="2100">2100</option>
+          <option value="2200">2200</option>
+          <option value="2300">2300</option>
+          <option value="2400">2400</option>
+          <option value="2500">2500</option>
+          <option value="2600">2600</option>
+          <option value="2700">2700</option>
+          <option value="2800">2800</option>
+          <option value="2900">2900</option>
+          <option value="3000">3000</option>
+          <option value="3100">3100</option>
+          <option value="3200">3200</option>
+          <option value="3300">3300</option>
+          <option value="3400">3400</option>
+          <option value="3500" selected>3500</option>
+        </select>
+      </div>
+      <button id="roll-btn"
+        onclick="roll(+document.getElementById('min-rating').value, +document.getElementById('max-rating').value)">
+        🎲 Random Problem
+      </button>
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-brand">
+        <img src="https://mr-expence.github.io/cat_logo.png" alt="">
+        <span>© 2025 Mr_Expence</span>
+      </div>
+      <nav class="footer-links">
+        <a href="https://modrinth.com/user/Mr_Expence" target="_blank" rel="noopener">Modrinth</a>
+        <a href="https://www.curseforge.com/members/mr_expence/projects" target="_blank" rel="noopener">CurseForge</a>
+        <a href="https://www.youtube.com/@MrExpence12" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://github.com/Mr-Expence" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://discord.gg/3kbz7edSa6" target="_blank" rel="noopener">Discord</a>
+      </nav>
+    </footer>
+  </div>
+  <script>
+    const setCountText = (id, value) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.textContent = value;
+    };
+
+    const formatCount = (value) =>
+      value == null ? "N/A" : value.toLocaleString();
+    // Modrinth
+    fetch("https://api.modrinth.com/v2/user/Mr_Expence/projects")
+      .then((res) => {
+        if (!res.ok) throw new Error("Modrinth fetch failed");
+        return res.json();
+      })
+      .then((projects) => {
+        const downloads = projects.reduce(
+          (sum, project) => sum + (project.downloads || 0),
+          0,
+        );
+        setCountText("modrinth-count", formatCount(downloads));
+      })
+      .catch(() => setCountText("modrinth-count", "N/A"));
+    // Github
+    fetch("https://api.github.com/users/Mr-Expence/repos?per_page=100")
+      .then((res) => {
+        if (!res.ok) throw new Error("GitHub fetch failed");
+        return res.json();
+      })
+      .then((repos) => {
+        const stars = repos.reduce(
+          (sum, repo) => sum + (repo.stargazers_count || 0),
+          0,
+        );
+        setCountText("github-count", formatCount(stars));
+      })
+      .catch(() => setCountText("github-count", "N/A"));
+    // CurseForge
+    setCountText("curseforge-count", "N/A");
+    // Discord
+    fetch("https://discord.com/api/guilds/1377934065025679380/widget.json")
+      .then((res) => {
+        if (!res.ok) throw new Error("Widget not enabled or bad ID");
+        return res.json();
+      })
+      .then((data) => {
+        document.getElementById("discord-count").textContent =
+          data.presence_count - 3;
+      })
+      .catch(() => {
+        document.getElementById("discord-count").textContent = "N/A";
+      });
+    // Youtube
+    fetch(
+      "https://mixerno.space/api/youtube-channel-counter/user/UCq9MzduXHZDplR16h1upgcQ",
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        document.getElementById("yt-subs").textContent = data.counts[0].count;
+      })
+      .catch(() => {
+        document.getElementById("yt-subs").textContent = "N/A";
+      });
+    // Twitch
+    fetch("https://decapi.me/twitch/followcount/mrexpence")
+      .then((res) => res.text())
+      .then((count) => {
+        document.getElementById("follower-count").textContent = count;
+      })
+      .catch(() => {
+        document.getElementById("follower-count").textContent = "N/A";
+      });
+    // Instagram
+    fetch("https://www.instagram.com/YOUR_USERNAME/?__a=1&__d=dis")
+      .then((res) => res.json())
+      .then((data) => {
+        setCountText(
+          "instagram-count",
+          formatCount(data.graphql?.user?.edge_followers?.count),
+        );
+      })
+      .catch(() => setCountText("instagram-count", "N/A"));
+
+    // Twitter/X
+    setCountText("twitter-count", "N/A");
+
+    // Reddit
+    fetch("https://www.reddit.com/user/YOUR_USERNAME/about.json")
+      .then((res) => res.json())
+      .then((data) => {
+        setCountText("reddit-count", formatCount(data.data?.total_karma));
+      })
+      .catch(() => setCountText("reddit-count", "N/A"));
+
+    // Telegram
+    setCountText("telegram-count", "N/A");
+  </script>
+  <script>
+    const RATINGS = [
+      800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900,
+      2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700, 2800, 2900, 3000, 3100,
+      3200, 3300, 3400, 3500,
+    ];
+    async function roll(min, max) {
+      const btn = document.getElementById("roll-btn");
+      btn.textContent = "Loading…";
+      btn.disabled = true;
+      try {
+        const res = await fetch(
+          "https://codeforces.com/api/problemset.problems",
+        );
+        const json = await res.json();
+        const pool = json.result.problems.filter(
+          (p) => p.rating >= min && p.rating <= max,
+        );
+        const p = pool[Math.floor(Math.random() * pool.length)];
+        window.open(
+          `https://codeforces.com/problemset/problem/${p.contestId}/${p.index}`,
+          "_blank",
+        );
+      } catch {
+        alert("Could not reach Codeforces. Check your connection.");
+      } finally {
+        btn.textContent = "🎲 Random Problem";
+        btn.disabled = false;
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+/* Problem Picker Styles */
+.picker-container {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  margin: 1.5rem 0;
+  justify-content: center;
+  opacity: 0;
+  animation: fadeUp 0.5s ease 0.25s forwards;
+}
+
+.picker-container div {
+  display: flex;
+  flex-direction: column;
+}
+
+.picker-container label {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.picker-container select {
+  height: 36px;
+  padding: 0 8px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg2);
+  color: var(--text);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.picker-container button {
+  height: 36px;
+  padding: 0 20px;
+  border-radius: 8px;
+  border: 1px solid var(--border2);
+  background: var(--accent);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}

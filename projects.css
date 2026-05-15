@@ -1,0 +1,151 @@
+/* ════════════════════════════════
+       FULL CARD
+    ════════════════════════════════ */
+.mr-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  width: 100%;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+  background: #fff;
+  text-decoration: none;
+  color: inherit;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+  animation: fadeUp 2s ease 0.0005s forwards;
+  max-width: 100%;
+}
+@media (prefers-color-scheme: dark) {
+  .mr-card {
+    background: #1e1e22;
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+}
+.mr-card:hover {
+  border-color: #1bd96a;
+}
+
+.mr-icon {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (prefers-color-scheme: dark) {
+  .mr-icon {
+    background: #2a2a30;
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+}
+.mr-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.mr-icon-fallback {
+  font-size: 22px;
+  font-weight: 600;
+  color: #999;
+}
+
+.mr-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.mr-header {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+.mr-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+.mr-author {
+  font-size: 12px;
+  color: #888;
+}
+
+.mr-desc {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (prefers-color-scheme: dark) {
+  .mr-desc {
+    color: #aaa;
+  }
+}
+
+.mr-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+.mr-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #666;
+}
+@media (prefers-color-scheme: dark) {
+  .mr-stat {
+    color: #aaa;
+  }
+}
+.mr-stat svg {
+  width: 13px;
+  height: 13px;
+  opacity: 0.6;
+}
+
+.mr-tag {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 99px;
+  background: #f0f0f0;
+  color: #555;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  text-transform: capitalize;
+}
+@media (prefers-color-scheme: dark) {
+  .mr-tag {
+    background: #2a2a30;
+    color: #bbb;
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+}
+.modrinth-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  width: 100%;
+  max-width: calc(320px * 3 + 24px * 2); /* matches 3-col cards-grid */
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  width: 100%;
+  justify-items: center;
+}
