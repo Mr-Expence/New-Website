@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flaming Swords</title>
+    <title>Shulker UI</title>
     <link rel="icon" href="/assets/cat_logo.png">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
@@ -34,27 +34,12 @@
 
             <br><br><br>
 
-            <img src="/assets/flaming-swords/logo.png" width="700" alt="Flaming Swords Logo"><br>
+            <img src="/assets/shulker-ui/logo.png" width="700" alt="Shulker UI Logo"><br>
 
             <!-- Summary -->
 
-            <h2>Makes the Fire Aspect Enchantment show flames</h2>
+            <h2>Makes the Shulker Box UI look nicer</h2>
             <br>
-
-            <!-- Video -->
-            <div style="
-                width: 640px;
-                -webkit-border-radius: 10px; 
-                -moz-border-radius: 10px;
-                border-radius: 10px; 
-                overflow: hidden; 
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
-                <iframe loading="lazy" class="video__last-video" width="640" height="360" frameborder="0"
-                    title="Latest video"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
-                    src="https://www.youtube.com/embed/dpnUaPoQpOE?si=0qYLrl-Q_E8OOo2i&amp;controls=0"></iframe>
-            </div><br><br><br>
 
             <!-- Download links -->
 
@@ -62,7 +47,7 @@
 
                 <!-- Modrinth -->
 
-                <a href="https://modrinth.com/resourcepack/flaming-swords" target="_blank"
+                <a href="https://modrinth.com/resourcepack/shulker-ui" target="_blank"
                     style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:#1bd96a;font-weight:600">
                     <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                         fill="currentColor">
@@ -89,7 +74,7 @@
                 <script>
                     if (typeof document !== 'undefined') {
                         // Replace fetch('https://api.modrinth.com/v2/project/ID/version')
-                        fetch('https://api.modrinth.com/v2/project/EcjQY7O3/version')
+                        fetch('https://api.modrinth.com/v2/project/4mbynavb/version')
                             .then(response => response.json())
                             .then(versions => {
                                 const latestVersion = versions[0];
@@ -101,7 +86,7 @@
 
                 <!-- Curseforge -->
 
-                <a href="https://www.curseforge.com/minecraft/texture-packs/flaming-swords" target="_blank"
+                <a href="https://www.curseforge.com/minecraft/texture-packs/shulker-ui" target="_blank"
                     style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:#f16436;font-weight:600">
                     <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                         fill="currentColor">
@@ -113,47 +98,16 @@
 
             </div>
 
+            <!-- Rest of Description -->
             <br><br><br>
-
-            <p>
-                <br><br>
-                This Resource pack changes the texture for swords when you enchant it with Fire Aspect.
-                <br><br>
-                It needs a cit mod for 1.21.4 or below as 1.21.5 adds custom item textures.
-                <br><br>
-                There are diffrent colours for the Copper and Netherite swords
-                <br><br>
-                3D Mace and Bow from tixul's Enchantment Outlines
-                <br><br>
-                Flaming Swords now has support for tixul's <a href="https://modrinth.com/resourcepack/glowing-glints"
-                    target="_blank" rel="noopener">Enchantment Outlines</a> which adds an animated glowing outline to
-                enchanted items.
-                <br><br>
-                The flames will glow brighter and animate when the item is enchanted with Fire Aspect.
-                <br><br>
-                You can toggle the glowing using <a href="https://modrinth.com/mod/respackopts" target="_blank"
-                    rel="noopener">ResPackOpts</a>
-                <br><br>
-                If there is no animations try turning off `Animate Only Visible Textures` in the Video Settings
-                <br><br>
-            </p>
+            <p>Changes the default shulker box GUI to a colouruful design that fits the shulker box's colour</p>
+            <br>
+            <p><strong>Requires OptiGUI to work</strong></p>
             <br><br><br>
 
             <!-- Images -->
 
-            <img src="/assets/flaming-swords/bow_f.png" width="600" alt="Flame Bow"><br><br>
-            <img src="/assets/flaming-swords/bow_fp.png" width="600" alt="Flame Bow Pulling"><br><br>
-            <img src="/assets/flaming-swords/bow_p.png" width="600" alt="Bow Pulling"><br><br>
-            <img src="/assets/flaming-swords/copper.png" width="600" alt="Copper Sword"><br><br>
-            <img src="/assets/flaming-swords/diamond.png" width="600" alt="Diamond Sword"><br><br>
-            <img src="/assets/flaming-swords/gold.png" width="600" alt="Golden Sword"><br><br>
-            <img src="/assets/flaming-swords/iron.png" width="600" alt="Iron Sword"><br><br>
-            <img src="/assets/flaming-swords/mace_f.png" width="600" alt="Fire Aspect Mace"><br><br>
-            <img src="/assets/flaming-swords/mace_ff.png" width="600" alt="Flat Fire Aspect Mace"><br><br>
-            <img src="/assets/flaming-swords/mace.png" width="600" alt="3D Mace"><br><br>
-            <img src="/assets/flaming-swords/netherite.png" width="600" alt="Netherite Sword"><br><br>
-            <img src="/assets/flaming-swords/stone.png" width="600" alt="Stone Sword"><br><br>
-            <img src="/assets/flaming-swords/wooden.png" width="600" alt="Wooden Sword"><br><br>
+            <img src="/assets/shulker-ui/ui.png" width="600" alt="Shulker UI"><br><br>
         </center>
     </div><!-- /page-wrap -->
     <!-- Footer -->
