@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr_Expence Studio</title>
+    <link rel="icon" href="/assets/cat_logo.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/style/base.css">
+    <link rel="stylesheet" href="/style/topbar.css">
+</head>
+
+<body>
+    <!-- ── Topbar ──────────────────────────────────────────────── -->
+    <nav class="topbar">
+        <a href="/">
+            <img src="/assets/cat_logo.png" alt="Mr_Expence logo">
+            Mr_Expence
+        </a>
+        <div class="topbar-right">
+            <a href="/">Home</a>
+            <a href="/projects">Projects</a>
+            <a href="/socials">Socials</a>
+            <a href="/problems">Problems</a>
+        </div>
+    </nav>
+
+    <!-- ── Page body ───────────────────────────────────────────── -->
+    <div class="page-wrap">
+
+        <center>
+
+            <!-- Logo -->
+
+            <img src="/assets/flaming-swords/logo.png" width="700" alt="Flaming Swords Logo"><br>
+
+            <!-- Summary -->
+
+            <h2>Makes the Fire Aspect Enchantment show flames</h2>
+            <br>
+
+            <!-- Video -->
+            <div style="
+width: 640px;
+-webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%); /*ios 7 border-radius-bug */
+-webkit-transform: rotate(0.000001deg); /*mac os 10.6 safari 5 border-radius-bug */
+-webkit-border-radius: 10px; 
+-moz-border-radius: 10px;
+border-radius: 10px; 
+overflow: hidden; 
+">
+                <iframe loading="lazy" class="video__last-video" width="640" height="360" frameborder="0"
+                    title="Latest video"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+                    src="https://www.youtube.com/embed/dpnUaPoQpOE?si=0qYLrl-Q_E8OOo2i&amp;controls=0"></iframe>
+            </div><br><br><br>
+
+            <!-- Download links -->
+
+            <div style="display:inline-flex;gap:16px;flex-wrap:wrap">
+
+                <!-- Modrinth -->
+
+                <a href="https://modrinth.com/resourcepack/flaming-swords" target="_blank"
+                    style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:#1bd96a;font-weight:600">
+                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                        fill="currentColor">
+                        <path
+                            d="M12.252.004a11.78 11.768 0 0 0-8.92 3.73 11 10.999 0 0 0-2.17 3.11 11.37 11.359 0 0 0-1.16 5.169c0 1.42.17 2.5.6 3.77.24.759.77 1.899 1.17 2.529a12.3 12.298 0 0 0 8.85 5.639c.44.05 2.54.07 2.76.02.2-.04.22.1-.26-1.7l-.36-1.37-1.01-.06a8.5 8.489 0 0 1-5.18-1.8 5.34 5.34 0 0 1-1.3-1.26c0-.05.34-.28.74-.5a37.572 37.545 0 0 1 2.88-1.629c.03 0 .5.45 1.06.98l1 .97 2.07-.43 2.06-.43 1.47-1.47c.8-.8 1.48-1.5 1.48-1.52 0-.09-.42-1.63-.46-1.7-.04-.06-.2-.03-1.02.18-.53.13-1.2.3-1.45.4l-.48.15-.53.53-.53.53-.93.1-.93.07-.52-.5a2.7 2.7 0 0 1-.96-1.7l-.13-.6.43-.57c.68-.9.68-.9 1.46-1.1.4-.1.65-.2.83-.33.13-.099.65-.579 1.14-1.069l.9-.9-.7-.7-.7-.7-1.95.54c-1.07.3-1.96.53-1.97.53-.03 0-2.23 2.48-2.63 2.97l-.29.35.28 1.03c.16.56.3 1.16.31 1.34l.03.3-.34.23c-.37.23-2.22 1.3-2.84 1.63-.36.2-.37.2-.44.1-.08-.1-.23-.6-.32-1.03-.18-.86-.17-2.75.02-3.73a8.84 8.839 0 0 1 7.9-6.93c.43-.03.77-.08.78-.1.06-.17.5-2.999.47-3.039-.01-.02-.1-.02-.2-.03Zm3.68.67c-.2 0-.3.1-.37.38-.06.23-.46 2.42-.46 2.52 0 .04.1.11.22.16a8.51 8.499 0 0 1 2.99 2 8.38 8.379 0 0 1 2.16 3.449 6.9 6.9 0 0 1 .4 2.8c0 1.07 0 1.27-.1 1.73a9.37 9.369 0 0 1-1.76 3.769c-.32.4-.98 1.06-1.37 1.38-.38.32-1.54 1.1-1.7 1.14-.1.03-.1.06-.07.26.03.18.64 2.56.7 2.78l.06.06a12.07 12.058 0 0 0 7.27-9.4c.13-.77.13-2.58 0-3.4a11.96 11.948 0 0 0-5.73-8.578c-.7-.42-2.05-1.06-2.25-1.06Z" />
+                    </svg>
+                    View on Modrinth
+                </a>
+
+                <!-- Download Button -->
+
+                <a id="download-btn" href="#" download
+                    style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:#41b3fe;font-weight:600">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="#41b3fe">
+                        <path
+                            d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z" />
+                    </svg>
+                    Download
+                </a>
+
+                <!-- Download Script -->
+
+                <script>
+                    if (typeof document !== 'undefined') {
+                        // Replace fetch('https://api.modrinth.com/v2/project/ID/version')
+                        fetch('https://api.modrinth.com/v2/project/EcjQY7O3/version')
+                            .then(response => response.json())
+                            .then(versions => {
+                                const latestVersion = versions[0];
+                                const downloadUrl = latestVersion.files[0].url;
+                                document.getElementById('download-btn').href = downloadUrl;
+                            });
+                    }
+                </script>
+
+                <!-- Curseforge -->
+
+                <a href="https://www.curseforge.com/minecraft/texture-packs/flaming-swords" target="_blank"
+                    style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:#f16436;font-weight:600">
+                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                        fill="currentColor">
+                        <path
+                            d="M18.326 9.2145S23.2261 8.4418 24 6.1882h-7.5066V4.4H0l2.0318 2.3576V9.173s5.1267-.2665 7.1098 1.2372c2.7146 2.516-3.053 5.917-3.053 5.917L5.0995 19.6c1.5465-1.4726 4.494-3.3775 9.8983-3.2857-2.0565.65-4.1245 1.6651-5.7344 3.2857h10.9248l-1.0288-3.2726s-7.918-4.6688-.8336-7.1127z" />
+                    </svg>
+                    View on CurseForge
+                </a>
+
+            </div>
+
+            <br><br><br>
+
+            <p>
+                <br><br>
+                This Resource pack changes the texture for swords when you enchant it with Fire Aspect.
+                <br><br>
+                It needs a cit mod for 1.21.4 or below as 1.21.5 adds custom item textures.
+                <br><br>
+                There are diffrent colours for the Copper and Netherite swords
+                <br><br>
+                3D Mace and Bow from tixul's Enchantment Outlines
+                <br><br>
+                Flaming Swords now has support for tixul's <a href="https://modrinth.com/resourcepack/glowing-glints" target="_blank" rel="noopener">Glowing Glints</a> mod which adds an animated glowing outline to enchanted items. The flames will glow brighter and animate when the item is enchanted with Fire Aspect.
+                <br><br>
+                You can toggle the glowing using <a href="https://modrinth.com/mod/respackopts" target="_blank" rel="noopener">ResPackOpts</a>
+                <br><br>
+                If there is no animations try turning off `Animate Only Visible Textures` in the Video Settings
+                <br><br>
+            </p>
+            <br><br><br>
+
+            <!-- Images -->
+
+            <img src="/assets/flaming-swords/bow_f.png" width="600" alt="Flame Bow"><br><br>
+            <img src="/assets/flaming-swords/bow_fp.png" width="600" alt="Flame Bow Pulling"><br><br>
+            <img src="/assets/flaming-swords/bow_p.png" width="600" alt="Bow Pulling"><br><br>
+            <img src="/assets/flaming-swords/copper.png" width="600" alt="Copper Sword"><br><br>
+            <img src="/assets/flaming-swords/diamond.png" width="600" alt="Diamond Sword"><br><br>
+            <img src="/assets/flaming-swords/gold.png" width="600" alt="Golden Sword"><br><br>
+            <img src="/assets/flaming-swords/iron.png" width="600" alt="Iron Sword"><br><br>
+            <img src="/assets/flaming-swords/mace_f.png" width="600" alt="Fire Aspect Mace"><br><br>
+            <img src="/assets/flaming-swords/mace_ff.png" width="600" alt="Flat Fire Aspect Mace"><br><br>
+            <img src="/assets/flaming-swords/mace.png" width="600" alt="3D Mace"><br><br>
+            <img src="/assets/flaming-swords/netherite.png" width="600" alt="Netherite Sword"><br><br>
+            <img src="/assets/flaming-swords/stone.png" width="600" alt="Stone Sword"><br><br>
+            <img src="/assets/flaming-swords/wooden.png" width="600" alt="Wooden Sword"><br><br>
+        </center>
+    </div><!-- /page-wrap -->
+    <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-brand">
+      <img src="/assets/cat_logo.png" alt="Mr_Expence Logo">
+      <span>© 2025 Mr_Expence</span>
+    </div>
+    <nav class="footer-links">
+      <a href="https://modrinth.com/user/Mr_Expence" target="_blank" rel="noopener">Modrinth</a>
+      <a href="https://www.curseforge.com/members/mr_expence/projects" target="_blank" rel="noopener">CurseForge</a>
+      <a href="https://www.youtube.com/@MrExpence12" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://github.com/Mr-Expence" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://discord.gg/3kbz7edSa6" target="_blank" rel="noopener">Discord</a>
+    </nav>
+  </footer>
+</body>
+
+</html>

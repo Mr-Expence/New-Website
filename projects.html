@@ -5,21 +5,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mr_Expence's Projects</title>
-  <link rel="icon" type="image/x-icon" href="cat_logo.png" />
+  <link rel="icon" type="image/x-icon" href="assets/cat_logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="base.css">
-  <link rel="stylesheet" href="projects.css">
-  <link rel="stylesheet" href="topbar.css">
+  <link rel="stylesheet" href="style/base.css">
+  <link rel="stylesheet" href="style/projects.css">
+  <link rel="stylesheet" href="style/topbar.css">
 </head>
 
 <body>
   <nav class="topbar">
     <a href="/">
-      <img src="cat_logo.png" alt="Mr_Expence logo">
+      <img src="assets/cat_logo.png" alt="Mr_Expence logo">
       Mr_Expence
     </a>
     <div class="topbar-right">
@@ -33,7 +33,7 @@
   </div>
   <div class="wrapper">
     <a class="brand" href="https://mr-expence.github.io" target="_self">
-      <img src="cat_logo.png" alt="Mr_Expence" onerror="this.style.display = 'none'" />
+      <img src="assets/cat_logo.png" alt="Mr_Expence" onerror="this.style.display = 'none'" />
       <span class="brand-name" style="color: #e4e6f0">Mr_Expence</span>
     </a>
 
@@ -112,10 +112,9 @@
         </a>
         <br />
       <div class="modrinth-list">
-        <!-- Example custom card - replace with your own content -->
         <a class="mr-card" href="https://mr-expence.github.io/projects/alternate-effect-particles">
           <div class="mr-icon">
-            <img src="https://mr-expence.github.io/alternate-effect-particles/pack.png" alt="Pack Icon">
+            <img src="/assets/alternate-effect-particles/pack.png" alt="Pack Icon">
           </div>
           <div class="mr-body">
             <div class="mr-header">
@@ -147,10 +146,9 @@
           </div>
         </a>
         <br />
-        <!-- Example custom card - replace with your own content -->
         <a class="mr-card" href="https://mr-expence.github.io/projects/bare-bone-crossless-lamps">
           <div class="mr-icon">
-            <img src="https://mr-expence.github.io/bare-bone-crossless-lamps/bare-bone-crossless-lamps.png"
+            <img src="/assets/bare-bone-crossless-lamps/bare-bone-crossless-lamps.png"
               alt="Pack Icon">
           </div>
           <div class="mr-body">
@@ -301,7 +299,7 @@
 
       document.querySelectorAll(".mr-card[data-slug]").forEach(async (el) => {
         const { slug, type, author } = el.dataset;
-        el.href = `https://mr-expence.github.io/projects/${slug}`;
+        el.href = `/projects/${slug}`;
         try {
           const d = await fetchProject(slug);
           if (d.icon_url) {
@@ -338,7 +336,7 @@
     <!-- Footer -->
     <footer class="footer">
       <div class="footer-brand">
-        <img src="cat_logo.png" alt="">
+        <img src="assets/cat_logo.png" alt="">
         <span>© 2025 Mr_Expence</span>
       </div>
       <nav class="footer-links">
