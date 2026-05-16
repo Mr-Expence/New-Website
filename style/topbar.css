@@ -72,3 +72,79 @@
   border-color: var(--c-brand);
   background: var(--c-brand-bg);
 }
+
+.topbar-checkbox {
+  display: none;
+}
+
+.topbar-toggle {
+  display: none;
+  margin-left: auto;
+  width: 42px;
+  height: 42px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 0;
+}
+
+.topbar-icon {
+  font-family: 'Material Symbols Outlined';
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  font-size: 24px;
+  color: var(--c-text-1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.topbar-icon-close {
+  display: none;
+}
+
+@media (max-width: 680px) {
+  .topbar {
+    padding: 14px 16px;
+    gap: 12px;
+  }
+
+  .topbar-right {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 16px 16px;
+    border-bottom: 1px solid var(--c-border);
+    background: rgba(27, 27, 31, 0.94);
+    backdrop-filter: blur(12px);
+    z-index: 9;
+  }
+
+  .topbar-right a {
+    width: 100%;
+    padding: 10px 14px;
+  }
+
+  .topbar-toggle {
+    display: inline-flex;
+  }
+
+  .topbar-checkbox:checked ~ .topbar-right {
+    display: flex;
+  }
+
+  .topbar-checkbox:checked + .topbar-toggle .topbar-icon-open {
+    display: none;
+  }
+
+  .topbar-checkbox:checked + .topbar-toggle .topbar-icon-close {
+    display: inline-flex;
+  }
+}
+
