@@ -1,4 +1,5 @@
 const footer = `
+<div class="page-wrap">
 <footer class="footer">
       <div class="footer-brand">
         <img src="assets/cat_logo.png" alt="">
@@ -12,5 +13,6 @@ const footer = `
         <a href="https://discord.gg/3kbz7edSa6" target="_blank" rel="noopener">Discord</a>
       </nav>
     </footer>
+  </div>
 `;
 document.body.insertAdjacentHTML("afterend", footer);
