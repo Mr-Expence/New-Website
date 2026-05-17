@@ -545,3 +545,10 @@ body::before {
   margin: 0 auto;
   padding: 96px 24px 80px;
 }
+
+code {
+    background-color: #23232977;
+    padding: 5px;
+    border-radius: 5px;
+    overflow-x: auto; /* Adds a scrollbar for long lines */
+}

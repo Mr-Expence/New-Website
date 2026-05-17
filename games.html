@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mr_Expence's Games</title>
+  <link rel="icon" type="image/x-icon" href="assets/cat_logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style/base.css">
+  <link rel="stylesheet" href="style/projects.css">
+  <link rel="stylesheet" href="style/topbar.css">
+  <script src="https://static.itch.io/api.js"></script>
+</head>
+
+<body>
+  <nav class="topbar">
+    <a href="/">
+      <img src="assets/cat_logo.png" alt="Mr_Expence logo">
+      Mr_Expence
+    </a>
+    <input type="checkbox" id="topbar-toggle" class="topbar-checkbox" aria-hidden="true">
+    <label for="topbar-toggle" class="topbar-toggle" aria-label="Toggle navigation menu">
+      <span class="topbar-icon topbar-icon-open" aria-hidden="true">dehaze</span>
+      <span class="topbar-icon topbar-icon-close" aria-hidden="true">close</span>
+    </label>
+    <div class="topbar-right">
+      <a href="/">Home</a>
+      <a href="/projects">Projects</a>
+      <a href="/socials">Socials</a>
+      <a href="/problems">Problems</a>
+    </div>
+  </nav>
+  <div class="page-wrap">
+  </div>
+  <div class="wrapper">
+    <a class="brand" href="https://mr-expence.github.io" target="_self">
+      <img src="assets/cat_logo.png" alt="Mr_Expence" onerror="this.style.display = 'none'" />
+      <span class="brand-name" style="color: #e4e6f0">Mr_Expence</span>
+    </a>
+
+    <h1 class="heading">
+      My
+      <em>Games</em>
+    </h1>
+    <div class="modrinth-list">
+
+      <a class="mr-card itch-card" data-user="mrexpence" data-game="bounty" href="#">
+        <div class="mr-icon">
+          <!-- Optional: hardcode a cover image if you have one -->
+          <!-- <img src="/assets/your-game/cover.png" alt="Cover"> -->
+        </div>
+        <div class="mr-body">
+          <div class="mr-header">
+            <span class="mr-title">Loading…</span>
+            <span class="mr-author">by Mr_Expence</span>
+          </div>
+          <p class="mr-desc"></p>
+          <div class="mr-meta"></div>
+        </div>
+      </a>
+
+    </div>
+    <script>
+      const setCountText = (id, value) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.textContent = value;
+      };
+
+      const formatCount = (value) =>
+        value == null ? "N/A" : value.toLocaleString();
+      // Modrinth
+      fetch("https://api.modrinth.com/v2/user/Mr_Expence/projects")
+        .then((res) => {
+          if (!res.ok) throw new Error("Modrinth fetch failed");
+          return res.json();
+        })
+        .then((projects) => {
+          const downloads = projects.reduce(
+            (sum, project) => sum + (project.downloads || 0),
+            0,
+          );
+          setCountText("modrinth-count", formatCount(downloads));
+        })
+        .catch(() => setCountText("modrinth-count", "N/A"));
+      // Github
+      fetch("https://api.github.com/users/Mr-Expence/repos?per_page=100")
+        .then((res) => {
+          if (!res.ok) throw new Error("GitHub fetch failed");
+          return res.json();
+        })
+        .then((repos) => {
+          const stars = repos.reduce(
+            (sum, repo) => sum + (repo.stargazers_count || 0),
+            0,
+          );
+          setCountText("github-count", formatCount(stars));
+        })
+        .catch(() => setCountText("github-count", "N/A"));
+      // CurseForge
+      setCountText("curseforge-count", "N/A");
+      // Discord
+      fetch("https://discord.com/api/guilds/1377934065025679380/widget.json")
+        .then((res) => {
+          if (!res.ok) throw new Error("Widget not enabled or bad ID");
+          return res.json();
+        })
+        .then((data) => {
+          document.getElementById("discord-count").textContent =
+            data.presence_count - 3;
+        })
+        .catch(() => {
+          document.getElementById("discord-count").textContent = "N/A";
+        });
+      // Youtube
+      fetch(
+        "https://mixerno.space/api/youtube-channel-counter/user/UCq9MzduXHZDplR16h1upgcQ",
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          document.getElementById("yt-subs").textContent = data.counts[0].count;
+        })
+        .catch(() => {
+          document.getElementById("yt-subs").textContent = "N/A";
+        });
+      // Twitch
+      fetch("https://decapi.me/twitch/followcount/mrexpence")
+        .then((res) => res.text())
+        .then((count) => {
+          document.getElementById("follower-count").textContent = count;
+        })
+        .catch(() => {
+          document.getElementById("follower-count").textContent = "N/A";
+        });
+      // Instagram
+      fetch("https://www.instagram.com/YOUR_USERNAME/?__a=1&__d=dis")
+        .then((res) => res.json())
+        .then((data) => {
+          setCountText(
+            "instagram-count",
+            formatCount(data.graphql?.user?.edge_followers?.count),
+          );
+        })
+        .catch(() => setCountText("instagram-count", "N/A"));
+
+      // Twitter/X
+      setCountText("twitter-count", "N/A");
+
+      // Reddit
+      fetch("https://www.reddit.com/user/YOUR_USERNAME/about.json")
+        .then((res) => res.json())
+        .then((data) => {
+          setCountText("reddit-count", formatCount(data.data?.total_karma));
+        })
+        .catch(() => setCountText("reddit-count", "N/A"));
+
+      // Telegram
+      setCountText("telegram-count", "N/A");
+      const UA = "Mr-Expence/vitepress-site";
+
+
+      // ── Full cards ──
+      async function fetchProject(slug) {
+        const res = await fetch(`https://api.modrinth.com/v2/project/${slug}`, {
+          headers: { "User-Agent": UA },
+        });
+        return res.json();
+      }
+
+      function formatNum(n) {
+        if (!n) return "0";
+        if (n >= 1_000_000) return (n / 1_000_000).toFixed(1) + "M";
+        if (n >= 1_000) return (n / 1_000).toFixed(1) + "K";
+        return n.toLocaleString();
+      }
+
+
+      document.querySelectorAll(".mr-card[data-slug]").forEach(async (el) => {
+        const { slug, type, author } = el.dataset;
+        el.href = `/projects/${slug}`;
+        try {
+          const d = await fetchProject(slug);
+          if (d.icon_url) {
+            el.querySelector(".mr-icon").innerHTML =
+              `<img src="${d.icon_url}" alt="${d.title}">`;
+          } else {
+            el.querySelector(".mr-icon-fallback").textContent =
+              d.title?.[0] ?? "?";
+          }
+          el.querySelector(".mr-title").textContent = d.title;
+          el.querySelector(".mr-author").textContent = author
+            ? `by ${author}`
+            : "";
+          el.querySelector(".mr-desc").textContent = d.description;
+          el.querySelector(".mr-meta").innerHTML = `
+          <span class="mr-stat">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="h-6 w-6 text-secondary"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-1m-4-4-4 4m0 0-4-4m4 4V4"></path></svg>
+            ${formatNum(d.downloads)} downloads
+          </span>
+          <span class="mr-stat">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" class="h-6 w-6 text-secondary"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 0 0 0 6.364L12 20.364l7.682-7.682a4.5 4.5 0 0 0-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 0 0-6.364 0"></path></svg>
+            ${formatNum(d.followers)} followers
+          </span>
+          ${(d.categories ?? [])
+              .slice(0, 2)
+              .map((c) => `<span class="mr-tag">${c}</span>`)
+              .join("")}
+        `;
+        } catch (e) {
+          el.querySelector(".mr-title").textContent = slug;
+        }
+      });
+      // Wraps the callback-based Itch.getGameData into a Promise
+      // so we can use async/await like the Modrinth cards do.
+      function fetchItchGame(user, game) {
+        return new Promise((resolve, reject) => {
+          Itch.getGameData({
+            user,
+            game,
+            onComplete: (data) => {
+              // itch.io returns null if the game isn't found or is private
+              if (data) resolve(data);
+              else reject(new Error(`No data for ${user}/${game}`));
+            },
+          });
+        });
+      }
+
+      // Picks an icon letter from the title as a fallback (same pattern as Modrinth cards)
+      function itchFallbackIcon(el, title) {
+        el.querySelector(".mr-icon").innerHTML =
+          `<span class="mr-icon-fallback">${title?.[0] ?? "?"}</span>`;
+      }
+
+      // Runs on every .itch-card that has both data-user and data-game
+      document.querySelectorAll(".itch-card[data-user][data-game]").forEach(async (el) => {
+        const { user, game } = el.dataset;
+
+        // Set the href immediately so even a broken card is still a valid link
+        el.href = `/games/${game}`;
+
+        try {
+          const d = await fetchItchGame(user, game);
+
+          // Title
+          el.querySelector(".mr-title").textContent = d.title ?? game;
+
+          // If no cover image was hardcoded, show a letter fallback
+          const icon = el.querySelector(".mr-icon");
+          if (!icon.querySelector("img")) {
+            itchFallbackIcon(el, d.title);
+          }
+
+          // Price tag — shows "Free" for $0.00, sale price if active, otherwise normal price
+          let priceHTML = "";
+          if (!d.price || d.price === "$0.00") {
+            priceHTML = `<span class="mr-tag">Free</span>`;
+          } else if (d.sale) {
+            // Sale: show the discounted price and the original struck-through
+            priceHTML = `
+          <span class="mr-tag">${d.price}</span>
+          <span class="mr-stat" style="text-decoration: line-through; opacity: 0.5;">
+            ${d.original_price}
+          </span>
+          <span class="mr-tag" style="background: #e45c5c22; color: #e45c5c;">
+            −${d.sale.rate}%
+          </span>`;
+          } else {
+            priceHTML = `<span class="mr-tag">${d.price}</span>`;
+          }
+
+          el.querySelector(".mr-meta").innerHTML = `
+        <span class="mr-stat">
+          <!-- itch.io logo icon, inline SVG -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 245.371 220.736"
+            class="h-6 w-6 text-secondary" fill="currentColor" style="width:16px;height:16px;">
+            <path d="M31.99 1.365C21.287 7.72.2 31.945 0 38.298v10.516C0 62.144 12.46 73.86
+              23.773 73.86c13.584 0 24.902-11.258 24.902-24.62 0 13.362 10.93 24.62 24.515
+              24.62 13.586 0 24.165-11.258 24.165-24.62 0 13.362 11.622 24.62 25.207
+              24.62h.246c13.586 0 25.208-11.258 25.208-24.62 0 13.362 10.58 24.62 24.164
+              24.62 13.585 0 24.515-11.258 24.515-24.62 0 13.362 11.32 24.62 24.903
+              24.62 11.313 0 23.773-11.716 23.773-25.046V38.298c-.2-6.353-21.287-30.578-31.988-36.933C180.118.6
+              62.377.84 31.99 1.365zm65.288 186.777c-11.453-1.007-24.355-14.494-27.912-27.486l-14.275-41.239H41.08L27.97
+              163.29c-9.29 9.03-24.234 10.048-33.928.802-9.695-9.247-10.76-24.226-2.42-34.677L37.84
+              75.5h169.692l46.217 53.915c8.34 10.45 7.276 25.43-2.42 34.677-9.693 9.246-24.636
+              8.228-33.928-.802l-13.109-43.238h-49.021l-14.274 41.239c-3.424 12.576-15.615
+              26.4-24.72 27.351z"/>
+          </svg>
+          itch.io
+        </span>
+        ${priceHTML}
+      `;
+        } catch (e) {
+          // If the fetch fails, at least show the slug so the card isn't blank
+          el.querySelector(".mr-title").textContent = game;
+          el.querySelector(".mr-meta").innerHTML =
+            `<span class="mr-stat" style="opacity:0.5;">Could not load data</span>`;
+          console.warn(`itch.io card failed for ${user}/${game}:`, e);
+        }
+      });
+    </script>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-brand">
+        <img src="assets/cat_logo.png" alt="">
+        <span>© 2025 Mr_Expence</span>
+      </div>
+      <nav class="footer-links">
+        <a href="https://modrinth.com/user/Mr_Expence" target="_blank" rel="noopener">Modrinth</a>
+        <a href="https://www.curseforge.com/members/mr_expence/projects" target="_blank" rel="noopener">CurseForge</a>
+        <a href="https://www.youtube.com/@MrExpence12" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://github.com/Mr-Expence" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://discord.gg/3kbz7edSa6" target="_blank" rel="noopener">Discord</a>
+      </nav>
+    </footer>
+</body>
+
+</html>
