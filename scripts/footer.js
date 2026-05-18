@@ -2,7 +2,7 @@ const footer = `
 <div class="page-wrap">
 <footer class="footer">
       <div class="footer-brand">
-        <img src="assets/cat_logo.png" alt="">
+        <img src="/assets/cat_logo.png" alt="">
         <span>© 2025 Mr_Expence</span>
       </div>
       <nav class="footer-links">

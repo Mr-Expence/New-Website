@@ -1,7 +1,7 @@
 const topbar = `
 <nav class="topbar">
     <a href="/" class="topbar-brand">
-      <img src="assets/cat_logo.png" alt="Mr_Expence logo">
+      <img src="/assets/cat_logo.png" alt="Mr_Expence logo">
       Mr_Expence
     </a>
     <input type="checkbox" id="topbar-toggle" class="topbar-checkbox" aria-hidden="true">
